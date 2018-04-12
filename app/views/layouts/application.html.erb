@@ -10,5 +10,7 @@
 
   <body>
     <%= yield %>
+    <%= @current_user if @current_user %>
+    <%= params.inspect %>
   </body>
 </html>
