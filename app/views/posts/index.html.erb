@@ -1,0 +1,8 @@
+<% @posts.each do |post|%>
+  <%= post.title %>
+  <%= post.body %>
+  <% if logged_in? %>
+    <%= post.user.name %>
+  <% end %>
+  <br>
+<% end %>
