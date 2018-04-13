@@ -12,6 +12,10 @@ module SessionsHelper
     self.current_user = nil
   end
 
+  def logged_in?
+    !current_user.nil?
+  end
+
   def current_user
     the_remember_token = User.digest(cookies[:the_remember_token])
     user = @current_user ||= User.find_by(remember_token: the_remember_token)
