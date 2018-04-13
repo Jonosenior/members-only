@@ -1,13 +1,22 @@
 module SessionsHelper
   def login(user)
-    remember_token = user.remember_token
-    cookies.permanent[:the_remember_token] = remember_token
-    user.update_attribute(:remember_token, User.digest(remember_token))
+    the_remember_token = user.remember_token
+    cookies.permanent[:the_remember_token] = the_remember_token
+    user.update_attribute(:remember_token, User.digest(the_remember_token))
     self.current_user = user
   end
 
+  def logout
+    current_user.update_attribute(:remember_token, current_user.create_token_for_user)
+    cookies.delete(:the_remember_token)
+    self.current_user = nil
+  end
+
   def current_user
-    @current_user ||= User.find_by(id: session[:user_id])
+    the_remember_token = User.digest(cookies[:the_remember_token])
+    user = @current_user ||= User.find_by(remember_token: the_remember_token)
+    return nil unless user
+    user
   end
 
   def current_user=(user)
