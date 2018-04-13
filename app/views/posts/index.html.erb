@@ -1,8 +1,23 @@
-<% @posts.each do |post|%>
-  <%= post.title %>
-  <%= post.body %>
-  <% if logged_in? %>
-    <%= post.user.name %>
-  <% end %>
-  <br>
-<% end %>
+<header class="masthead bg-primary text-white text-center">
+  <div class="container">
+    <!-- <img class="img-fluid mb-5 d-block mx-auto" src="gossip.jpg" alt="image not found"> -->
+    <%= image_tag("gossip.jpg", :class => "img-circle img-fluid mb-5 d-block mx-auto", width: '200px') %>
+    <h1 class="text-uppercase mb-0">Top Gossip</h1>
+    <hr class="star-light">
+    <h2 class="font-weight-light mb-0">Secrets  -  Rumours  -  Hearsay</h2>
+  </div>
+</header>
+
+<section class="portfolio" id="about">
+  <div class="container-fluid">
+    <h2 class="text-center text-uppercase text-secondary mb-0">Gossipy Posts</h2>
+    <hr class="star-dark mb-5">
+    <% @posts.each do |post|%>
+      <div class="row justify-content-center">
+        <h4><%= post.title %></h4>
+        <p>by Anonymous</p>
+        <p><%= post.body %></p>
+      </div>
+    <% end %>
+  </div>
+</section>
