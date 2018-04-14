@@ -1,2 +1,11 @@
 @import 'bootstrap-sprockets';
-@import 'bootstrap'
+@import 'bootstrap';
+
+#login_container {
+  padding-top: 120px;
+}
+@media (max-width: 979px) {
+  body {
+    padding-top: 0px;
+  }
+}
