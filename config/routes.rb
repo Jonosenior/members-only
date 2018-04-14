@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'posts#index'
 
+  get "/about", to: 'static_pages#about'
+
   get 'posts', to: 'posts#index'
   get 'posts/new', to: 'posts#new'
   post 'posts', to: 'posts#create'
