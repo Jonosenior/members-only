@@ -1,12 +1,21 @@
 <% provide(:title, "New Post") %>
 
-<h1>New Post</h1>
-<%= form_for(:post, url: posts_path) do |f| %>
-	<%= f.label :title %>
-	<%= f.text_field :title%><br>
 
-	<%= f.label :body %>
-	<%= f.text_field :body%><br>
+<div class="container" id="login_container">
+  <div class="row">
+      <div class="col-md-offset-4 col-md-4">
+        <div class="form-login">
+					<h1>New Post</h1>
+					<%= form_for(:post, url: posts_path) do |f| %>
+						<%= f.label :title %>
+						<%= f.text_field :title, class: "form-control input-sm chat-input"%><br>
 
-	<%= f.submit "Post" %>
-<% end %>
+						<%= f.label :body %>
+						<%= f.text_area :body, class: "form-control input-lg chat-input"%><br>
+
+						<%= f.submit "Post", class: "btn btn-primary btn-md" %>
+					<% end %>
+        </div>
+      </div>
+    </div>
+</div>

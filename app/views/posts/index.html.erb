@@ -9,15 +9,24 @@
 </header>
 
 <section class="portfolio" id="gossip">
-  <div class="container-fluid">
+  <div class="container">
     <h2 class="text-center text-uppercase text-secondary mb-0">Gossipy Posts</h2>
     <hr class="star-dark mb-5">
-    <% @posts.each do |post|%>
-      <div class="row justify-content-center">
-        <h4><%= post.title %></h4>
-        <p>by Anonymous</p>
-        <p><%= post.body %></p>
-      </div>
-    <% end %>
+    <div class="col-lg-5 col-lg-offset-3">
+      <% @posts.each do |post|%>
+        <% if logged_in? %>
+          <% author = post.user.name %>
+        <% else %>
+          <% author = "Anonymous" %>
+        <% end %>
+        <div class="post-preview">
+          <h4 class="post-title">
+            <%= post.title %>
+          </h4>
+          <p class="post-meta"> Posted by <b> <%= author %> </b> on <%= post.created_at.strftime("%B %d, %Y") %> </p>
+          <p> <%= post.body %> </p><br>
+        </div>
+      <% end %>
+    </div>
   </div>
 </section>
