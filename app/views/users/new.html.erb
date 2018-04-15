@@ -1,0 +1,23 @@
+<% provide(:title, "New User") %>
+
+<div class="container" id="login_container">
+  <div class="row">
+      <div class="col-md-offset-4 col-md-4">
+        <div class="form-login">
+					<h1>New User</h1>
+					<%= form_for(:user, url: users_create_path) do |f| %>
+						<%= f.label :name %>
+						<%= f.text_field :name, class: "form-control input-sm chat-input"%><br>
+
+						<%= f.label :email %>
+						<%= f.text_field :email, class: "form-control input-sm chat-input"%><br>
+
+            <%= f.label :password %>
+            <%= f.password_field :password, class: "form-control input-sm chat-input"%><br>
+
+						<%= f.submit "Submit", class: "btn btn-primary btn-md" %>
+					<% end %>
+        </div>
+      </div>
+    </div>
+</div>

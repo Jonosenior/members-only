@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'users/new'
+
+
   root 'posts#index'
 
   get "/about", to: 'static_pages#about'
