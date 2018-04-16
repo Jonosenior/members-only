@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+  root 'posts#index'
+
   get 'users/new'
   post 'users/new', to: 'users#create'
-
-  root 'posts#index'
 
   get "/about", to: 'static_pages#about'
 
