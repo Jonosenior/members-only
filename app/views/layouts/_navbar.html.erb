@@ -27,7 +27,7 @@
         <li><%= link_to "About", about_path %></li>
         <% if logged_in? %>
           <li><%= link_to "New Post", posts_new_path%></li>
-          <li><%= link_to "Log Out", logout_path, method: "delete"%></li>
+          <li><%= link_to "Log Out", logout_path, method: :delete%></li>
         <% else %>
           <li><%= link_to "Sign Up", users_new_path %></li>
           <li><%= link_to "Log In", login_path %></li>
