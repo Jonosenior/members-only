@@ -4,7 +4,7 @@ This Rails project allows users to post anonymous gossip to a public message boa
 
 Try it out yourself [here](https://top-gossip.herokuapp.com).
 
-![Screenshot](screenshot.png)
+![Screenshot](images/screenshot.png)
 
 ## Features
 
